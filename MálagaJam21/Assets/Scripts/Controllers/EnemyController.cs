@@ -2,7 +2,7 @@
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private WaypointsData waypointsData;
+    [SerializeField] private Vector2[] waypoints;
 
     private const float MinDistance = 0.1f;
 
@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         index = 0;
-        nextPosition = waypointsData.Waypoints[index];
+        nextPosition = waypoints[index];
     }
 
     private void Update()
@@ -30,8 +30,8 @@ public class EnemyController : MonoBehaviour
 
         if(Vector2.SqrMagnitude(nextPosition - myPosition) < MinDistance)
         {
-            index = (index + 1) % waypointsData.Waypoints.Length;
-            nextPosition = waypointsData.Waypoints[index];
+            index = (index + 1) % waypoints.Length;
+            nextPosition = waypoints[index];
         }
     }
 
