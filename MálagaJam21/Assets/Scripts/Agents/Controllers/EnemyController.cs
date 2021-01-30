@@ -5,7 +5,7 @@ public class EnemyController : MonoBehaviour
     private const float MinDistance = 0.1f;
 
     private Vector2[] waypoints;
-    private DestroyBehaviour destroyBehaviour;
+    private DeactivateBehaviour destroyBehaviour;
     private MoveBehaviour moveBehaviour;
     private Vector2 myPosition;
     private Vector2 nextPosition;
@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        destroyBehaviour = GetComponent<DestroyBehaviour>();
+        destroyBehaviour = GetComponent<DeactivateBehaviour>();
         moveBehaviour = GetComponent<MoveBehaviour>();
     }
 
@@ -39,13 +39,13 @@ public class EnemyController : MonoBehaviour
 
         if (player != null)
         {
-            player.Destroy();
+            player.Respawn();
         }
     }
 
     public void Destroy()
     {
-        destroyBehaviour.Destroy();
+        destroyBehaviour.Deactivate();
     }
 
     public void Initialize(float min, float max, int minWaypoints, int maxWaypoints)

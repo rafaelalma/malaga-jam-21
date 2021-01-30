@@ -3,13 +3,16 @@
 public class PlayerController : MonoBehaviour
 {
     private MoveBehaviour moveBehaviour;
-    private DestroyBehaviour destroyBehaviour;
+    private RespawnBehaviour respawnBehaviour;
     private Vector2 moveDirection;
 
     private void Awake()
     {
         moveBehaviour = GetComponent<MoveBehaviour>();
-        destroyBehaviour = GetComponent<DestroyBehaviour>();
+
+        respawnBehaviour = GetComponent<RespawnBehaviour>();
+        Vector2 initialPosition = new Vector2(transform.position.x, transform.position.y);
+        respawnBehaviour.SetRespawnPosition(initialPosition);
     }
 
     private void Update()
@@ -25,8 +28,8 @@ public class PlayerController : MonoBehaviour
         moveBehaviour.Move(moveDirection);
     }
 
-    public void Destroy()
+    public void Respawn()
     {
-        destroyBehaviour.Destroy();
+        respawnBehaviour.Respawn();
     }
 }

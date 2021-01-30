@@ -10,28 +10,33 @@ public class GenerateObstaclesBehaviour : MonoBehaviour
         {
             Vector2 position = new Vector2(f, min);
 
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
+            InstantiateObstacle(position);
         }
 
         for (float f = min; f <= max; f += step)
         {
             Vector2 position = new Vector2(f, max);
 
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
+            InstantiateObstacle(position);
         }
 
         for (float f = min; f <= max; f += step)
         {
             Vector2 position = new Vector2(min, f);
 
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
+            InstantiateObstacle(position);
         }
 
         for (float f = min; f <= max; f += step)
         {
             Vector2 position = new Vector2(max, f);
 
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
+            InstantiateObstacle(position);
         }
+    }
+
+    private void InstantiateObstacle(Vector2 position)
+    {
+        Instantiate(obstaclePrefab, position, Quaternion.identity, transform);
     }
 }
