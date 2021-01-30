@@ -2,10 +2,9 @@
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Vector2[] waypoints;
-
     private const float MinDistance = 0.1f;
 
+    private Vector2[] waypoints;
     private DestroyBehaviour destroyBehaviour;
     private MoveBehaviour moveBehaviour;
     private Vector2 myPosition;
@@ -18,17 +17,11 @@ public class EnemyController : MonoBehaviour
         moveBehaviour = GetComponent<MoveBehaviour>();
     }
 
-    private void Start()
-    {
-        index = 0;
-        nextPosition = waypoints[index];
-    }
-
     private void Update()
     {
         myPosition = new Vector2(transform.position.x, transform.position.y);
 
-        if(Vector2.SqrMagnitude(nextPosition - myPosition) < MinDistance)
+        if (Vector2.SqrMagnitude(nextPosition - myPosition) < MinDistance)
         {
             index = (index + 1) % waypoints.Length;
             nextPosition = waypoints[index];
@@ -53,5 +46,22 @@ public class EnemyController : MonoBehaviour
     public void Destroy()
     {
         destroyBehaviour.Destroy();
+    }
+
+    public void Initialize(float min, float max)
+    {
+        RandomizeWaypoints(min, max);
+
+        nextPosition = waypoints[index];
+    }
+
+    private void RandomizeWaypoints(float min, float max)
+    {
+        waypoints = new Vector2[Random.Range(2, 11)];
+
+        for (int i = 0; i < waypoints.Length; i++)
+        {
+            waypoints[i] = new Vector2(Random.Range(min, max), Random.Range(min, max));
+        }
     }
 }
