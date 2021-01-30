@@ -1092,6 +1092,9 @@ GameObject:
   m_Component:
   - component: {fileID: 461703392}
   - component: {fileID: 461703393}
+  - component: {fileID: 461703395}
+  - component: {fileID: 461703394}
+  - component: {fileID: 461703396}
   m_Layer: 0
   m_Name: LevelGenerator
   m_TagString: Untagged
@@ -1125,21 +1128,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b0fc82830886443a7929c26701e8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  min: -3
+  max: 3
+  step: 0.15
+--- !u!114 &461703394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461703391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9217875a4ce0d448251e179a89ed4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5387458399726224164, guid: a8fd5251dd4a26f4690a6236afa1baba,
     type: 3}
-  playerPrefab: {fileID: 6908984855911732729, guid: 9da5c55b759b09347afc7bf326ac86c8,
-    type: 3}
-  weaponPrefab: {fileID: 7386900347129157071, guid: 50dd8367588269e4ab1d665b53f8d11c,
-    type: 3}
-  goalPrefab: {fileID: 5086352296247731184, guid: 0fbf6c7ccbe0e0f47b48d699cd360eca,
-    type: 3}
+  amount: 10
+  minWaypoints: 2
+  maxWaypoints: 11
+--- !u!114 &461703395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461703391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9add76e23ec7bd4097d739b94d0bc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 8179890586420079834, guid: e442303674ee33241bdfe46cad0e6ab5,
     type: 3}
+--- !u!114 &461703396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461703391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17234062962f26243a4c101205215bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   semiObstaclePrefab: {fileID: 4281800257750738678, guid: 0dd099e5ce184bd4e8852e3163f16693,
     type: 3}
-  min: -2
-  max: 2
-  step: 0.15
+  amount: 50
 --- !u!1 &473528106
 GameObject:
   m_ObjectHideFlags: 0

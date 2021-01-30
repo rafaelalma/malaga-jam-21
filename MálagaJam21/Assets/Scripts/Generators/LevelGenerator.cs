@@ -2,52 +2,27 @@
 
 public class LevelGenerator : MonoBehaviour
 {
-    [SerializeField] private EnemyController enemyPrefab;
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private GameObject weaponPrefab;
-    [SerializeField] private GameObject goalPrefab;
-    [SerializeField] private GameObject obstaclePrefab;
-    [SerializeField] private GameObject semiObstaclePrefab;
     [SerializeField] float min;
     [SerializeField] float max;
     [SerializeField] float step;
 
-    private void Start()
-    {
-        EnemyController enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        enemy.Initialize(min + 0.25f, max - 0.25f);
+    private GenerateObstaclesBehaviour generateObstaclesBehaviour;
+    private GenerateEnemiesBehaviour generateEnemiesBehaviour;
+    private GenerateSemiObstaclesBehaviour generateSemiObstaclesBehaviour;
 
-        GenerateBorders();
+    private void Awake()
+    {
+        generateObstaclesBehaviour = GetComponent<GenerateObstaclesBehaviour>();
+        generateEnemiesBehaviour = GetComponent<GenerateEnemiesBehaviour>();
+        generateSemiObstaclesBehaviour = GetComponent<GenerateSemiObstaclesBehaviour>();
     }
 
-    private void GenerateBorders()
+    private void Start()
     {
-        for (float f = min; f <= max; f += step)
-        {
-            Vector2 position = new Vector2(f, min);
+        generateObstaclesBehaviour.Generate(min, max, step);
 
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
-        }
+        generateEnemiesBehaviour.Generate(min, max, step);
 
-        for (float f = min; f <= max; f += step)
-        {
-            Vector2 position = new Vector2(f, max);
-
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
-        }
-
-        for (float f = min; f <= max; f += step)
-        {
-            Vector2 position = new Vector2(min, f);
-
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
-        }
-
-        for (float f = min; f <= max; f += step)
-        {
-            Vector2 position = new Vector2(max, f);
-
-            Instantiate(obstaclePrefab, position, Quaternion.identity);
-        }
+        generateSemiObstaclesBehaviour.Generate(min, max, step);
     }
 }
