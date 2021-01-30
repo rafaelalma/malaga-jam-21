@@ -16,7 +16,7 @@ public class GenerateEnemiesBehaviour : MonoBehaviour
         {
             Vector3 randomPosition = new Vector3(Random.Range(min, max), Random.Range(min, max), 0);
 
-            EnemyController enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+            EnemyController enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity, transform);
             enemy.Initialize(min, max, minWaypoints, maxWaypoints);
         }
     }

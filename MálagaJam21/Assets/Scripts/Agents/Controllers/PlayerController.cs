@@ -32,4 +32,14 @@ public class PlayerController : MonoBehaviour
     {
         respawnBehaviour.Respawn();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        WeaponController weapon = collision.gameObject.GetComponent<WeaponController>();
+
+        if (weapon != null)
+        {
+            weapon.gameObject.layer = 0; // Default
+        }
+    }
 }

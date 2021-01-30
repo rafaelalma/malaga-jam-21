@@ -14,7 +14,7 @@ public class GenerateSemiObstaclesBehaviour : MonoBehaviour
         {
             Vector3 randomPosition = new Vector3(Random.Range(min, max), Random.Range(min, max), 0);
 
-            Instantiate(semiObstaclePrefab, randomPosition, Quaternion.identity);
+            Instantiate(semiObstaclePrefab, randomPosition, Quaternion.identity, transform);
         }
     }
 }

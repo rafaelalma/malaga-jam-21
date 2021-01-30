@@ -70,7 +70,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 5387458399726224167}
   - component: {fileID: 5387458399726224186}
   - component: {fileID: 5387458399726224187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5a06b8cec752d4fa38f62496410b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 2
 --- !u!114 &5387458399726224167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ff4d850b389d74ea84d284e7023efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyParticles: {fileID: 3960834010311157565, guid: b02a5d34f61ada1419adb2d29de54996,
+    type: 3}
 --- !u!50 &5387458399726224186
 Rigidbody2D:
   serializedVersion: 4

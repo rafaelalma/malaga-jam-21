@@ -8,7 +8,7 @@ public class WeaponController : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.Destroy();
+            enemy.Deactivate();
         }
     }
 }
