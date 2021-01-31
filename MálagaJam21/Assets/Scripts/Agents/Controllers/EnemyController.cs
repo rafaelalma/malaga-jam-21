@@ -2,7 +2,7 @@
 
 public class EnemyController : MonoBehaviour
 {
-    private const float MinDistance = 0.1f;
+    private const float MinDistance = 0.3f;
 
     private Vector2[] waypoints;
     private DeactivateBehaviour deactivateBehaviour;
