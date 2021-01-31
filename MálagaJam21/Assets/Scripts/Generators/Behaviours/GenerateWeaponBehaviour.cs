@@ -6,8 +6,8 @@ public class GenerateWeaponBehaviour : MonoBehaviour
 
     public void Generate(float min, float max, float step)
     {
-        min += step;
-        max -= step;
+        min = (min + step) / 2;
+        max = (max - step) / 2;
 
         Vector3 randomPosition = new Vector3(Random.Range(min, max), Random.Range(min, max), 0);
 

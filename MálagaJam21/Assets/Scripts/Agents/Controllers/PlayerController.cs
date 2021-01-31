@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     private MoveBehaviour moveBehaviour;
     private RespawnBehaviour respawnBehaviour;
     private Vector2 moveDirection;
+    private bool isWeaponActive;
 
     private void Awake()
     {
@@ -35,11 +36,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        WeaponController weapon = collision.gameObject.GetComponent<WeaponController>();
-
-        if (weapon != null)
+        if(!isWeaponActive)
         {
-            weapon.gameObject.layer = 0; // Default
+            WeaponController weapon = collision.gameObject.GetComponent<WeaponController>();
+
+            if (weapon != null)
+            {
+                weapon.gameObject.layer = 0; // Default
+
+                isWeaponActive = true;
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ public class VictoryUI : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        gitPushText.SetText($"Successful Git Push in {Time.time} seconds!");
+        gitPushText.SetText($"Successful Git Push in {Mathf.RoundToInt(Time.timeSinceLevelLoad)} seconds!");
     }
 
     private void Hide()

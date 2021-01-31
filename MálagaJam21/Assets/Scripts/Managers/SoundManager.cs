@@ -8,7 +8,8 @@ public class SoundManager : MonoBehaviour
 
     public enum Sound
     {
-        // TODO: Add sounds.
+        PlayerRespawn,
+        EnemyDeactivate
     }
 
     public float Volume { get => volume; }
